@@ -1,7 +1,7 @@
 import psycopg2
 conn = psycopg2.connect(
    host="localhost",
-   database="database",
+   database="dict",
    user="user",
    password="abc123"
 )
@@ -33,6 +33,12 @@ while True: ## REPL - Read Execute Program Loop
         name = input("  Word: ")
         phone = input("  Translation: ")
         add_word(conn, name, phone)
+    elif cmd == "help":
+        print("""available commands:
+add - add a phone number
+delete - delete a contact
+list - list all phone numbers
+quit - quit the program""")
     elif cmd == "delete":
         ID = input("  ID: ")
         delete_word(conn, ID)
